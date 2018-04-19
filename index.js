@@ -35,7 +35,7 @@ app.get('/getHostOnlineInfo', function (req, res) {
 });
 
 app.get('/getTimeIntervalStatistics', function (req, res) {
- Client.getTimeIntervalStatistics({count:100}, function(err, result) {
+ Client.getTimeIntervalStatistics({type:2,count:24}, function(err, result) {
         res.send(result);
     });
 });
