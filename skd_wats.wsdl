@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="skd_wats"
+  targetNamespace="urn:wats"
+  xmlns:tns="urn:wats"
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:wats="urn:wats"
+  xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:HTTP="http://schemas.xmlsoap.org/wsdl/http/"
+  xmlns:MIME="http://schemas.xmlsoap.org/wsdl/mime/"
+  xmlns:DIME="http://schemas.xmlsoap.org/ws/2002/04/dime/wsdl/"
+  xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/"
+  xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+<types>
+
+  <schema targetNamespace="urn:wats"
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:wats="urn:wats"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="unqualified"
+    attributeFormDefault="unqualified">
+    <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+    <complexType name="CityAssetInfo"><!-- wats__CityAssetInfo -->
+          <sequence>
+            <element name="cityID" type="xsd:unsignedInt" minOccurs="1" maxOccurs="1"/><!-- wats__CityAssetInfo::cityID -->
+            <element name="WindowsHostCounter" type="xsd:unsignedInt" minOccurs="1" maxOccurs="1"/><!-- wats__CityAssetInfo::WindowsHostCounter -->
+            <element name="LinuxHostCounter" type="xsd:unsignedInt" minOccurs="1" maxOccurs="1"/><!-- wats__CityAssetInfo::LinuxHostCounter -->
+            <element name="otherHostCOunter" type="xsd:unsignedInt" minOccurs="1" maxOccurs="1"/><!-- wats__CityAssetInfo::otherHostCOunter -->
+          </sequence>
+    </complexType>
+    <complexType name="HostOnlineInfo"><!-- wats__HostOnlineInfo -->
+          <sequence>
+            <element name="cityID" type="xsd:unsignedInt" minOccurs="1" maxOccurs="1"/><!-- wats__HostOnlineInfo::cityID -->
+            <element name="onlineHostCounter" type="xsd:unsignedInt" minOccurs="1" maxOccurs="1"/><!-- wats__HostOnlineInfo::onlineHostCounter -->
+            <element name="offlineHostCounter" type="xsd:unsignedInt" minOccurs="1" maxOccurs="1"/><!-- wats__HostOnlineInfo::offlineHostCounter -->
+          </sequence>
+    </complexType>
+    <!-- operation request element -->
+    <element name="currentTime">
+      <complexType>
+          <sequence>
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation response element -->
+    <element name="currentTimeResponse">
+      <complexType>
+          <sequence>
+            <element name="response" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/><!-- wats__currentTime::response -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation request element -->
+    <element name="getDeviceCount">
+      <complexType>
+          <sequence>
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation response element -->
+    <element name="getDeviceCountResponse">
+      <complexType>
+          <sequence>
+            <element name="response" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__getDeviceCount::response -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation request element -->
+    <element name="getTotalStatisticsCounter">
+      <complexType>
+          <sequence>
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation response element and type -->
+    <element name="ProStatInfo" type="wats:ProStatInfo"/>
+    <complexType name="ProStatInfo">
+          <sequence>
+            <element name="cityID" type="xsd:unsignedInt" minOccurs="1" maxOccurs="1"/><!-- wats__ProStatInfo::cityID -->
+            <element name="checkNumber" type="xsd:unsignedLong" minOccurs="1" maxOccurs="1"/><!-- wats__ProStatInfo::checkNumber -->
+            <element name="interceptionNumber" type="xsd:unsignedLong" minOccurs="1" maxOccurs="1"/><!-- wats__ProStatInfo::interceptionNumber -->
+            <element name="captureNumber" type="xsd:unsignedLong" minOccurs="1" maxOccurs="1"/><!-- wats__ProStatInfo::captureNumber -->
+          </sequence>
+    </complexType>
+    <!-- operation request element -->
+    <element name="getCityStatisticsCounter">
+      <complexType>
+          <sequence>
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation response element -->
+    <element name="getCityStatisticsCounterResponse">
+      <complexType>
+          <sequence>
+            <element name="response" type="wats:ProStatInfo" minOccurs="1" maxOccurs="unbounded"/><!-- wats__getCityStatisticsCounter::response -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation request element -->
+    <element name="getCityASSetInfo">
+      <complexType>
+          <sequence>
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation response element -->
+    <element name="getCityASSetInfoResponse">
+      <complexType>
+          <sequence>
+            <element name="response" type="wats:CityAssetInfo" minOccurs="1" maxOccurs="unbounded"/><!-- wats__getCityASSetInfo::response -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation request element -->
+    <element name="getHostOnlineInfo">
+      <complexType>
+          <sequence>
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation response element -->
+    <element name="getHostOnlineInfoResponse">
+      <complexType>
+          <sequence>
+            <element name="response" type="wats:HostOnlineInfo" minOccurs="1" maxOccurs="unbounded"/><!-- wats__getHostOnlineInfo::response -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation request element -->
+    <element name="getTimeIntervalStatistics">
+      <complexType>
+          <sequence>
+            <element name="type" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__getTimeIntervalStatistics::type -->
+            <element name="count" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__getTimeIntervalStatistics::count -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation response element -->
+    <element name="getTimeIntervalStatisticsResponse">
+      <complexType>
+          <sequence>
+            <element name="response" type="wats:ProStatInfo" minOccurs="1" maxOccurs="unbounded"/><!-- wats__getTimeIntervalStatistics::response -->
+          </sequence>
+      </complexType>
+    </element>
+  </schema>
+
+</types>
+
+<message name="currentTimeRequest">
+  <part name="Body" element="wats:currentTime"/><!-- wats__currentTime::wats__currentTime -->
+</message>
+
+<message name="currentTimeResponse">
+  <part name="Body" element="wats:currentTimeResponse"/>
+</message>
+
+<message name="getDeviceCountRequest">
+  <part name="Body" element="wats:getDeviceCount"/><!-- wats__getDeviceCount::wats__getDeviceCount -->
+</message>
+
+<message name="getDeviceCountResponse">
+  <part name="Body" element="wats:getDeviceCountResponse"/>
+</message>
+
+<message name="getTotalStatisticsCounter">
+  <part name="Body" element="wats:getTotalStatisticsCounter"/><!-- wats__getTotalStatisticsCounter::wats__getTotalStatisticsCounter -->
+</message>
+
+<message name="ProStatInfo">
+  <part name="Body" element="wats:ProStatInfo"/><!-- wats__getTotalStatisticsCounter::response -->
+</message>
+
+<message name="getCityStatisticsCounterRequest">
+  <part name="Body" element="wats:getCityStatisticsCounter"/><!-- wats__getCityStatisticsCounter::wats__getCityStatisticsCounter -->
+</message>
+
+<message name="getCityStatisticsCounterResponse">
+  <part name="Body" element="wats:getCityStatisticsCounterResponse"/>
+</message>
+
+<message name="getCityASSetInfoRequest">
+  <part name="Body" element="wats:getCityASSetInfo"/><!-- wats__getCityASSetInfo::wats__getCityASSetInfo -->
+</message>
+
+<message name="getCityASSetInfoResponse">
+  <part name="Body" element="wats:getCityASSetInfoResponse"/>
+</message>
+
+<message name="getHostOnlineInfoRequest">
+  <part name="Body" element="wats:getHostOnlineInfo"/><!-- wats__getHostOnlineInfo::wats__getHostOnlineInfo -->
+</message>
+
+<message name="getHostOnlineInfoResponse">
+  <part name="Body" element="wats:getHostOnlineInfoResponse"/>
+</message>
+
+<message name="getTimeIntervalStatisticsRequest">
+  <part name="Body" element="wats:getTimeIntervalStatistics"/><!-- wats__getTimeIntervalStatistics::wats__getTimeIntervalStatistics -->
+</message>
+
+<message name="getTimeIntervalStatisticsResponse">
+  <part name="Body" element="wats:getTimeIntervalStatisticsResponse"/>
+</message>
+
+<portType name="skd_watsPortType">
+  <operation name="currentTime">
+    <documentation>Service definition of function wats__currentTime</documentation>
+    <input message="tns:currentTimeRequest"/>
+    <output message="tns:currentTimeResponse"/>
+  </operation>
+  <operation name="getDeviceCount">
+    <documentation>Service definition of function wats__getDeviceCount</documentation>
+    <input message="tns:getDeviceCountRequest"/>
+    <output message="tns:getDeviceCountResponse"/>
+  </operation>
+  <operation name="getTotalStatisticsCounter">
+    <documentation>Service definition of function wats__getTotalStatisticsCounter</documentation>
+    <input message="tns:getTotalStatisticsCounter"/>
+    <output message="tns:ProStatInfo"/>
+  </operation>
+  <operation name="getCityStatisticsCounter">
+    <documentation>Service definition of function wats__getCityStatisticsCounter</documentation>
+    <input message="tns:getCityStatisticsCounterRequest"/>
+    <output message="tns:getCityStatisticsCounterResponse"/>
+  </operation>
+  <operation name="getCityASSetInfo">
+    <documentation>Service definition of function wats__getCityASSetInfo</documentation>
+    <input message="tns:getCityASSetInfoRequest"/>
+    <output message="tns:getCityASSetInfoResponse"/>
+  </operation>
+  <operation name="getHostOnlineInfo">
+    <documentation>Service definition of function wats__getHostOnlineInfo</documentation>
+    <input message="tns:getHostOnlineInfoRequest"/>
+    <output message="tns:getHostOnlineInfoResponse"/>
+  </operation>
+  <operation name="getTimeIntervalStatistics">
+    <documentation>Service definition of function wats__getTimeIntervalStatistics</documentation>
+    <input message="tns:getTimeIntervalStatisticsRequest"/>
+    <output message="tns:getTimeIntervalStatisticsResponse"/>
+  </operation>
+</portType>
+
+<binding name="skd_wats" type="tns:skd_watsPortType">
+  <SOAP:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="currentTime">
+    <SOAP:operation soapAction=""/>
+    <input>
+          <SOAP:body parts="Body" use="literal"/>
+    </input>
+    <output>
+          <SOAP:body parts="Body" use="literal"/>
+    </output>
+  </operation>
+  <operation name="getDeviceCount">
+    <SOAP:operation soapAction=""/>
+    <input>
+          <SOAP:body parts="Body" use="literal"/>
+    </input>
+    <output>
+          <SOAP:body parts="Body" use="literal"/>
+    </output>
+  </operation>
+  <operation name="getTotalStatisticsCounter">
+    <SOAP:operation soapAction=""/>
+    <input>
+          <SOAP:body parts="Body" use="literal"/>
+    </input>
+    <output>
+          <SOAP:body parts="Body" use="literal"/>
+    </output>
+  </operation>
+  <operation name="getCityStatisticsCounter">
+    <SOAP:operation soapAction=""/>
+    <input>
+          <SOAP:body parts="Body" use="literal"/>
+    </input>
+    <output>
+          <SOAP:body parts="Body" use="literal"/>
+    </output>
+  </operation>
+  <operation name="getCityASSetInfo">
+    <SOAP:operation soapAction=""/>
+    <input>
+          <SOAP:body parts="Body" use="literal"/>
+    </input>
+    <output>
+          <SOAP:body parts="Body" use="literal"/>
+    </output>
+  </operation>
+  <operation name="getHostOnlineInfo">
+    <SOAP:operation soapAction=""/>
+    <input>
+          <SOAP:body parts="Body" use="literal"/>
+    </input>
+    <output>
+          <SOAP:body parts="Body" use="literal"/>
+    </output>
+  </operation>
+  <operation name="getTimeIntervalStatistics">
+    <SOAP:operation soapAction=""/>
+    <input>
+          <SOAP:body parts="Body" use="literal"/>
+    </input>
+    <output>
+          <SOAP:body parts="Body" use="literal"/>
+    </output>
+  </operation>
+</binding>
+
+<service name="skd_wats">
+  <documentation>gSOAP 2.8.53 generated service definition</documentation>
+  <port name="skd_wats" binding="tns:skd_wats">
+    <SOAP:address location="http://ws.sa.sky-deep.com/webservice_sa/soap_isapi.dll?soap_wats"/>
+  </port>
+</service>
+
+</definitions>
