@@ -75,16 +75,23 @@ function getCityStatisticsCounter(){
         series.push({
             name: "捕获次数",
             type: 'bar',
+            barGap:0,
             data: captureNumberSeries
         });
         series.push({
             name: "拦截次数",
             type: 'bar',
+            barGap:0,
             data: interceptionNumberSeries
         });
         series.push({
             name: "检测次数",
             type: 'bar',
+            barGap:0,
+            label:{
+                show:true,
+                position:"right"
+            },
             data: checkNumberSeries
         });
 
@@ -128,7 +135,8 @@ function getCityStatisticsCounter(){
                     lineStyle:{
                         color:"#144869"
                     }
-                }
+                },
+                interval:10000
             },
             yAxis: {
                 type: 'category',
@@ -168,18 +176,21 @@ function getCityASSetInfo(){
             name: "Windows",
             type: 'bar',
             stack: '总量',
+            barWidth:"50%",
             data: WindowsHostCounterSeries
         });
         series.push({
             name: "Linux",
             type: 'bar',
             stack: '总量',
+            barWidth:"50%",
             data: LinuxHostCounterSeries
         });
         series.push({
             name: "其它",
             type: 'bar',
             stack: '总量',
+            barWidth:"50%",
             data: otherHostCOunterSeries
         });
         var option = {
@@ -222,7 +233,8 @@ function getCityASSetInfo(){
                     lineStyle:{
                         color:"#144869"
                     }
-                }
+                },
+                interval:5000
             },
             yAxis: {
                 type: 'category',
@@ -254,11 +266,13 @@ function getHostOnlineInfo(){
         series.push({
             name: "在线",
             type: 'bar',
+            barGap:0,
             data: onlineHostCounterSeries
         });
         series.push({
             name: "离线",
             type: 'bar',
+            barGap:0,
             data: offlineHostCounterSeries
         });
         var option = {
