@@ -41,7 +41,7 @@ body{
 
 .content{
     width: 100%;
-    margin-top: -20px;
+    margin-top: -10px;
 }
 
 .content-left{
@@ -69,6 +69,24 @@ body{
     height: 780px;
     padding: 20px 20px 0px 20px;
     display: inline-block;
+}
+.content-middle-chart-title{
+    top: 140px;
+    position: absolute;
+    text-align: center;
+}
+.content-middle-chart-title>div{
+    cursor: pointer;
+    display: inline-block;
+    vertical-align:middle;
+}
+.content-middle-chart-title>div>img{
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-left: 30px;
+}
+.content-middle-chart-title>div>span{
+    color: white;
 }
 .content-right{
     width: 508px;
@@ -114,4 +132,7 @@ body{
 #chart_5{
     width: 460px;
     height: 380px;
+}
+.hide{
+    display: none;
 }

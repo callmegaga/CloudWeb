@@ -3,8 +3,45 @@
  */
 var Chart_1 = echarts.init(document.getElementById('chart_1'));
 var Chart_2 = echarts.init(document.getElementById('chart_2'));
+var Chart_3 = echarts.init(document.getElementById('chart_3'));
 var Chart_4 = echarts.init(document.getElementById('chart_4'));
 var Chart_5 = echarts.init(document.getElementById('chart_5'));
+var Now_Map_Show_type = 1;                                          //1显示总检测次数，2显示总拦截次数，3显示总捕获次数
+
+var MapCaptureNumberData = [
+    {name:"福州市",value:[119.306239, 26.075302,0]},
+    {name:"莆田市",value:[119.007558, 25.431011, 0]},
+    {name:"泉州市",value:[118.589421, 24.908853, 0]},
+    {name:"厦门市",value:[118.11022, 24.490474, 0]},
+    {name:"宁德市",value:[119.527082, 26.65924, 0]},
+    {name:"漳州市",value:[117.66181, 24.510897,0]},
+    {name:"龙岩市",value:[117.02978, 25.091603, 0]},
+    {name:"三明市",value:[117.63500, 26.265444,0]},
+    {name:"南平市",value:[118.17846, 26.635627,0]},
+];
+var MapCheckNumberData = [
+    {name:"福州市",value:[119.306239, 26.075302,  100000]},
+    {name:"莆田市",value:[119.007558, 25.431011, 0]},
+    {name:"泉州市",value:[118.589421, 24.908853, 0]},
+    {name:"厦门市",value:[118.11022, 24.490474, 0]},
+    {name:"宁德市",value:[119.527082, 26.65924, 0]},
+    {name:"漳州市",value:[117.66181, 24.510897,0]},
+    {name:"龙岩市",value:[117.02978, 25.091603, 0]},
+    {name:"三明市",value:[117.63500, 26.265444,0]},
+    {name:"南平市",value:[118.17846, 26.635627,0]},
+];
+var MapInterceptionNumberData = [
+    {name:"福州市",value:[119.306239, 26.075302, 0]},
+    {name:"莆田市",value:[119.007558, 25.431011, 0]},
+    {name:"泉州市",value:[118.589421, 24.908853, 0]},
+    {name:"厦门市",value:[118.11022, 24.490474, 0]},
+    {name:"宁德市",value:[119.527082, 26.65924, 0]},
+    {name:"漳州市",value:[117.66181, 24.510897,0]},
+    {name:"龙岩市",value:[117.02978, 25.091603, 0]},
+    {name:"三明市",value:[117.63500, 26.265444,0]},
+    {name:"南平市",value:[118.17846, 26.635627,0]},
+];
+
 //获取城市统计信息
 function getCityStatisticsCounter(){
     $.get("getCityStatisticsCounter",{},function(data){
@@ -12,15 +49,28 @@ function getCityStatisticsCounter(){
         var captureNumberSeries      = [];
         var checkNumberSeries        = [];
         var interceptionNumberSeries = [];
+
+        MapCaptureNumberData = [];
+        MapCheckNumberData = [];
+        MapInterceptionNumberData = [];
+
         var data = data.response;
         for (var i in data){
+            var cityID             = parseInt(data[i].cityID);
             var captureNumber      = parseInt(data[i].captureNumber);
             var checkNumber        = parseInt(data[i].checkNumber);
             var interceptionNumber = parseInt(data[i].interceptionNumber);
             captureNumberSeries.push(captureNumber);
             interceptionNumberSeries.push(interceptionNumber);
             checkNumberSeries.push(checkNumber);
+
+            var name = fromIntGetCityName(cityID);
+            var coor = fromIntGetCityCoor(cityID);
+            MapCheckNumberData.push({name:name, value:coor.concat(checkNumber)});
+            MapInterceptionNumberData.push({name:name, value:coor.concat(interceptionNumber)});
+            MapCaptureNumberData.push({name:name, value:coor.concat(captureNumber)});
         }
+
 
         series.push({
             name: "捕获次数",
@@ -81,6 +131,8 @@ function getCityStatisticsCounter(){
         };
 
         Chart_1.setOption(option);
+
+        setMapData();
     })
 }
 //获取城市资产信息
@@ -226,7 +278,6 @@ function getHostOnlineInfo(){
         Chart_5.setOption(option);
     })
 }
-
 //获取各时段统计信息
 function getTimeIntervalStatistics(){
     $.get("getTimeIntervalStatistics",function(data){
@@ -300,37 +351,129 @@ function getTimeIntervalStatistics(){
         Chart_2.setOption(option);
     })
 }
-
 //获返回总统计数
 function getTotalStatisticsCounter(){
     $.get("getTotalStatisticsCounter",function(data){
+        var checkNumber = data.checkNumber;
+        var captureNumber = data.captureNumber;
+        var interceptionNumber = data.interceptionNumber;
 
+        $("#all-check-number").html("总检测次数：" + checkNumber);
+        $("#all-capture-number").html("总捕获次数：" + captureNumber);
+        $("#all-interception-number").html("总拦截次数：" + interceptionNumber);
+        $(".content-middle-chart-title").removeClass("hide");
     })
 }
+
+//初始化地图
+$.get('/js/fujian.json', function (geoJson) {
+    echarts.registerMap("福建", geoJson);
+    var option = {
+        geo: {
+            map: "福建",
+            zoom:1.2,
+        },
+        series: [
+            {
+                type: 'map',
+                mapType: "福建",
+                label: {
+                    offset:[0,30],
+                    show:false,
+                    color: '#fff',
+                    emphasis: {
+                        show:false,
+                    }
+                },
+                zoom:1.2,
+                itemStyle: {
+                    normal: {
+                        borderColor: '#07123C',
+                        areaColor: '#13878F'
+                    },
+                    emphasis: {
+                        areaColor: '#389BB7',
+                        borderWidth: 0
+                    }
+                }
+            },
+            {
+                name: 'Top 5',
+                type: 'effectScatter',
+                coordinateSystem: 'geo',
+                label: {
+                    offset:[0,-20],
+                    show:true,
+                    formatter:function(e){
+                        return e.data.name
+                    },
+                    color: '#fff'
+                },
+                data:getMapData(),
+                symbolSize: getMapItemSize,
+                showEffectOn: 'render',
+                rippleEffect: {
+                    brushType: 'stroke'
+                },
+                hoverAnimation: true,
+                itemStyle: {
+                    normal: {
+                        color: getMapItemColor(),
+                        shadowBlur: 10,
+                        shadowColor: '#333'
+                    }
+                }
+            }
+        ]
+    };
+
+    Chart_3.setOption(option);
+});
 
 function fromIntGetCityName(value){
     switch (parseInt(value)){
         case 256:
-            return "福州";
+            return "福州市";
         case 257:
-            return "莆田";
+            return "莆田市";
         case 258:
-            return "泉州";
+            return "泉州市";
         case 259:
-            return "厦门";
+            return "厦门市";
         case 260:
-            return "宁德";
+            return "宁德市";
         case 261:
-            return "漳州";
+            return "漳州市";
         case 262:
-            return "龙岩";
+            return "龙岩市";
         case 263:
-            return "三明";
+            return "三明市";
         case 264:
-            return "南平";
+            return "南平市";
     }
 }
-
+function fromIntGetCityCoor(value){
+    switch (parseInt(value)){
+        case 256:
+            return [119.306239, 26.075302];
+        case 257:
+            return [119.007558, 25.431011];
+        case 258:
+            return [118.589421, 24.908853];
+        case 259:
+            return [118.11022, 24.490474];
+        case 260:
+            return [119.527082, 26.65924];
+        case 261:
+            return [117.661801, 24.510897];
+        case 262:
+            return [117.02978, 25.091603];
+        case 263:
+            return [117.635001, 26.265444];
+        case 264:
+            return [118.178459, 26.635627];
+    }
+}
 function getNow24Hour(){
     var hours = [];
     var timestamp=new Date().getTime();
@@ -349,7 +492,6 @@ function getNow24Hour(){
     }
     return hours
 }
-
 function showNowTime(){
     var date=new Date();
     var Y = date.getFullYear();
@@ -361,16 +503,67 @@ function showNowTime(){
     $(".header-time-time").html(h + ":"  + m);
     $(".header-time-day").html(Y + "-" + M + "-" + D);
 }
+function getMapData(){
+    switch (Now_Map_Show_type){
+        case 1:
+            return MapCheckNumberData;
+        case 2:
+            return MapInterceptionNumberData;
+        case 3:
+            return MapCaptureNumberData;
 
+    }
+}
+function getMapItemColor(){
+    switch (Now_Map_Show_type){
+        case 1:
+            return '#fff';
+        case 2:
+            return '#f4e925';
+        case 3:
+            return '#E8627A';
+
+    }
+}
+
+function setMapData(){
+    var option = Chart_3.getOption();
+    option.series[1].data = getMapData();
+    option.series[1].itemStyle.color = getMapItemColor();
+    Chart_3.setOption(option)
+}
+
+function getMapItemSize(val){
+    var value = val[2] / 2000;
+    if (value > 20) value = 20;
+    return value
+}
+
+$("#content-middle-chart-title-check-number").click(function(){
+    Now_Map_Show_type = 1;
+    setMapData();
+});
+
+$("#content-middle-chart-title-interception-number").click(function(){
+    Now_Map_Show_type = 2;
+    setMapData();
+});
+
+$("#content-middle-chart-title-capture-number").click(function(){
+    Now_Map_Show_type = 3;
+    setMapData();
+});
 getCityStatisticsCounter();
 getCityASSetInfo();
 getHostOnlineInfo();
 getTimeIntervalStatistics();
+getTotalStatisticsCounter();
 showNowTime();
 setInterval(function(){
     getCityStatisticsCounter();
     getCityASSetInfo();
     getHostOnlineInfo();
     getTimeIntervalStatistics();
+    getTotalStatisticsCounter();
     showNowTime();
 },5000);
