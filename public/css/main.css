@@ -120,6 +120,18 @@ body{
     padding: 20px 20px 0px 20px;
 }
 
+@media (max-width: 1366px) {
+    .content-right{
+        width: 27%;
+    }
+    .content-middle-chart-title{
+        width: calc(48% - 100px);
+    }
+    .content-middle{
+        width: calc(48% - 130px);
+    }
+}
+
 #chart_1{
     width: 100%;
     height: 100%;
@@ -139,7 +151,12 @@ body{
     width: 100%;
     height: 100%;
 }
-
+.all_city_ass{
+    position: absolute;
+    top: 120px;
+    right: 60px;
+    color: white;
+}
 #chart_5{
     width: 100%;
     height: 100%;

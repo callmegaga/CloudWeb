@@ -163,6 +163,7 @@ function getCityASSetInfo(){
         var WindowsHostCounterSeries  = [];
         var LinuxHostCounterSeries    = [];
         var otherHostCOunterSeries    = [];
+        var all_city_ass = 0;
         var data = data.response;
         for (var i in data){
             var WindowsHostCounter = parseInt(data[i].WindowsHostCounter);
@@ -171,6 +172,9 @@ function getCityASSetInfo(){
             WindowsHostCounterSeries.push(WindowsHostCounter);
             LinuxHostCounterSeries.push(LinuxHostCounter);
             otherHostCOunterSeries.push(otherHostCOunter);
+            all_city_ass += WindowsHostCounter;
+            all_city_ass += LinuxHostCounter;
+            all_city_ass += otherHostCOunter;
         }
         series.push({
             name: "Windows",
@@ -248,6 +252,7 @@ function getCityASSetInfo(){
             series: series
         };
         Chart_4.setOption(option);
+        $(".all_city_ass").html("总资产数" + all_city_ass)
     })
 }
 //获取城市主机上线
@@ -302,6 +307,7 @@ function getHostOnlineInfo(){
             grid: {
                 top:80,
                 left: 45,
+                right:0,
                 bottom:40
             },
             color:["#44FDFE","#4267E1"],
