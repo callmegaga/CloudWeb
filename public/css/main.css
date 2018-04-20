@@ -91,6 +91,7 @@ body{
 .content-middle-chart-title>div>img{
     vertical-align: middle;
     width: 10%;
+    margin-right: 8px;
 }
 .content-middle-chart-title>div>span{
     color: white;

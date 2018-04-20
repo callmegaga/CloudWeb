@@ -119,11 +119,26 @@ function getCityStatisticsCounter(){
             color:["#F9D345","#F1637B","#4179FE"],
             xAxis: {
                 type: 'value',
+                splitLine:{
+                    lineStyle:{
+                        color:"#144869"
+                    }
+                },
+                axisLine:{
+                    lineStyle:{
+                        color:"#144869"
+                    }
+                }
             },
             yAxis: {
                 type: 'category',
                 inverse: true,
                 data: ["福州","莆田","泉州","厦门","宁德","漳州","龙岩","三明","南平"],
+                axisLine:{
+                    lineStyle:{
+                        color:"#144869"
+                    }
+                }
             },
             series: series
         };
@@ -198,10 +213,25 @@ function getCityASSetInfo(){
             color:["#4267E1","#FAD344","#50CA74"],
             xAxis: {
                 type: 'value',
+                splitLine:{
+                    lineStyle:{
+                        color:"#144869"
+                    }
+                },
+                axisLine:{
+                    lineStyle:{
+                        color:"#144869"
+                    }
+                }
             },
             yAxis: {
                 type: 'category',
                 data: ["福州","莆田","泉州","厦门","宁德","漳州","龙岩","三明","南平"],
+                axisLine:{
+                    lineStyle:{
+                        color:"#144869"
+                    }
+                }
             },
             series: series
         };
@@ -264,9 +294,25 @@ function getHostOnlineInfo(){
             xAxis: {
                 type: 'category',
                 data: ["福州","莆田","泉州","厦门","宁德","漳州","龙岩","三明","南平"],
+                axisLine:{
+                    lineStyle:{
+                        color:"#144869"
+                    }
+                },
+
             },
             yAxis: {
                 type: 'value',
+                splitLine:{
+                    lineStyle:{
+                        color:"#144869"
+                    }
+                },
+                axisLine:{
+                    lineStyle:{
+                        color:"#144869"
+                    }
+                }
             },
             series: series
         };
@@ -337,10 +383,25 @@ function getTimeIntervalStatistics(){
             color:["#F9D345","#F1637B","#4179FE"],
             xAxis: {
                 type: 'category',
-                data: getNow24Hour()
+                data: getNow24Hour(),
+                axisLine:{
+                    lineStyle:{
+                        color:"#144869"
+                    }
+                }
             },
             yAxis: {
-                type: 'value'
+                type: 'value',
+                splitLine:{
+                    lineStyle:{
+                        color:"#144869"
+                    }
+                },
+                axisLine:{
+                    lineStyle:{
+                        color:"#144869"
+                    }
+                }
             },
             series: series
         };
