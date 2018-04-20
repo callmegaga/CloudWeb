@@ -1,6 +1,7 @@
 html{
     width: 100%;
     height: 100%;
+    min-height: 954px;
 }
 body{
     width: 100%;
@@ -12,6 +13,7 @@ body{
 .header{
     color: white;
     text-align: center;
+    height: 110px;
 }
 .header-title{
     display: inline-block;
@@ -32,7 +34,7 @@ body{
     margin-top: 20px;
 }
 .header-buttons-button{
-    width: 120px;
+    width: 7%;
     cursor: pointer;
     display: inline-block;
     border-bottom:1px solid transparent;
@@ -41,81 +43,90 @@ body{
 
 .content{
     width: 100%;
+    height: calc(100% - 110px);
     margin-top: -12px;
 }
 
 .content-left{
     width: 25%;
+    height: 100%;
     margin-left: 40px;
     display: inline-block;
+    vertical-align: top;
 }
 .content-left-top{
-    width: 100%;
-    height: 503px;
+    width: calc(100% - 40px);
+    height: 55%;
     background-image: url("../img/frame_1.png");
     background-size:100% 100%;
     padding: 20px 20px 0px 20px;
 }
 .content-left-bottom{
     margin-top: 20px;
-    width: 463px;
-    height: 307px;
+    width: calc(100% - 40px);
+    height:35%;
     background-image: url("../img/frame_3.png");
     background-size:100% 100%;
     padding: 20px 20px 0px 20px;
 }
 .content-middle{
-    width: 42%;
-    height: 780px;
+    width: calc(50% - 130px);
+    height: calc(100% - 20px);
     padding: 20px 20px 0px 20px;
     display: inline-block;
+    vertical-align: top;
 }
 .content-middle-chart-title{
+    width: calc(50% - 100px);
     top: 140px;
     position: absolute;
     text-align: center;
+    z-index: 2;
 }
 .content-middle-chart-title>div{
+    width: 31%;
     cursor: pointer;
     display: inline-block;
     vertical-align:middle;
 }
 .content-middle-chart-title>div>img{
     vertical-align: middle;
-    margin-right: 10px;
-    margin-left: 30px;
+    width: 10%;
 }
 .content-middle-chart-title>div>span{
     color: white;
+    font-size: 13px;
 }
 .content-right{
     width: 25%;
-    margin-right: 20px;
+    height: 100%;
+    margin-right: 40px;
     display: inline-block;
+    vertical-align: top;
 }
 .content-right-top{
-    width: 463px;
-    height: 403px;
+    width: calc(100% - 40px);
+    height: 43%;
     background-image: url("../img/frame_1.png");
     background-size:100% 100%;
-    padding: 20px 20px 0px 20px;
+    padding: 40px 20px 0px 20px;
 }
 .content-right-bottom{
-    width: 463px;
-    height: 403px;
+    width: calc(100% - 40px);
+    height:43%;
     margin-top: 20px;
     background-image: url("../img/frame_1.png");
     background-size:100% 100%;
-    padding: 20px 20px 0px 20px;
+    padding: 40px 20px 0px 20px;
 }
 
 #chart_1{
-    width: 460px;
+    width: 100%;
     height: 480px;
 }
 
 #chart_2{
-    width: 460px;
+    width: 100%;
     height: 280px;
 }
 
@@ -125,12 +136,12 @@ body{
 }
 
 #chart_4{
-    width: 460px;
+    width: 100%;
     height: 380px;
 }
 
 #chart_5{
-    width: 460px;
+    width: 100%;
     height: 380px;
 }
 .hide{

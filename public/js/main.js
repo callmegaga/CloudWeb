@@ -105,22 +105,20 @@ function getCityStatisticsCounter(){
                 }
             },
             legend: {
-                top:30,
+                top:40,
                 data: ["捕获次数","拦截次数","检测次数"],
                 textStyle:{
                     color:"white"
                 }
             },
             grid: {
-                left: 35
+                top:80,
+                left: 35,
+                bottom:40
             },
             color:["#F9D345","#F1637B","#4179FE"],
             xAxis: {
                 type: 'value',
-                name: '次数',
-                axisLabel: {
-                    formatter: '{value}'
-                }
             },
             yAxis: {
                 type: 'category',
@@ -186,22 +184,20 @@ function getCityASSetInfo(){
                 }
             },
             legend: {
-                top:30,
+                top:40,
                 data: ["Windows","Linux","其它"],
                 textStyle:{
                     color:"white"
                 }
             },
             grid: {
-                left: 35
+                left: 35,
+                top:80,
+                bottom:40
             },
             color:["#4267E1","#FAD344","#50CA74"],
             xAxis: {
                 type: 'value',
-                name: '次数',
-                axisLabel: {
-                    formatter: '{value}'
-                }
             },
             yAxis: {
                 type: 'category',
@@ -252,7 +248,7 @@ function getHostOnlineInfo(){
                 }
             },
             legend: {
-                top:30,
+                top:40,
                 left:40,
                 data: ["在线","离线"],
                 textStyle:{
@@ -260,7 +256,9 @@ function getHostOnlineInfo(){
                 }
             },
             grid: {
-                left: 45
+                top:80,
+                left: 45,
+                bottom:40
             },
             color:["#44FDFE","#4267E1"],
             xAxis: {
@@ -269,9 +267,6 @@ function getHostOnlineInfo(){
             },
             yAxis: {
                 type: 'value',
-                axisLabel: {
-                    formatter: '{value}'
-                }
             },
             series: series
         };
@@ -322,7 +317,7 @@ function getTimeIntervalStatistics(){
                 }
             },
             legend: {
-                top:30,
+                top:40,
                 data: ["捕获次数","拦截次数","检测次数"],
                 textStyle:{
                     color:"white"
@@ -335,7 +330,9 @@ function getTimeIntervalStatistics(){
                 }
             },
             grid: {
-                left: 50
+                left: 50,
+                top:80,
+                bottom:30
             },
             color:["#F9D345","#F1637B","#4179FE"],
             xAxis: {
@@ -371,7 +368,7 @@ $.get('/js/fujian.json', function (geoJson) {
     var option = {
         geo: {
             map: "福建",
-            zoom:1.2,
+            zoom:1.1,
         },
         series: [
             {
@@ -385,7 +382,7 @@ $.get('/js/fujian.json', function (geoJson) {
                         show:false,
                     }
                 },
-                zoom:1.2,
+                zoom:1.1,
                 itemStyle: {
                     normal: {
                         borderColor: '#07123C',
