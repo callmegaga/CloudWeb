@@ -525,6 +525,9 @@ function getMapItemColor(){
 
 function setMapData(){
     var option = Chart_3.getOption();
+    if (option.series[1] == undefined){
+        return
+    }
     option.series[1].data = getMapData();
     option.series[1].itemStyle.color = getMapItemColor();
     Chart_3.setOption(option)

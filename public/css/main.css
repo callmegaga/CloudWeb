@@ -77,7 +77,7 @@ body{
 }
 .content-middle-chart-title{
     width: calc(50% - 100px);
-    top: 140px;
+    top: 130px;
     position: absolute;
     text-align: center;
     z-index: 2;
