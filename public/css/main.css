@@ -41,16 +41,16 @@ body{
 
 .content{
     width: 100%;
-    margin-top: -10px;
+    margin-top: -12px;
 }
 
 .content-left{
-    width: 508px;
+    width: 25%;
     margin-left: 40px;
     display: inline-block;
 }
 .content-left-top{
-    width: 463px;
+    width: 100%;
     height: 503px;
     background-image: url("../img/frame_1.png");
     background-size:100% 100%;
@@ -65,7 +65,7 @@ body{
     padding: 20px 20px 0px 20px;
 }
 .content-middle{
-    width: calc(100% - 1150px);
+    width: 42%;
     height: 780px;
     padding: 20px 20px 0px 20px;
     display: inline-block;
@@ -89,7 +89,7 @@ body{
     color: white;
 }
 .content-right{
-    width: 508px;
+    width: 25%;
     margin-right: 20px;
     display: inline-block;
 }
