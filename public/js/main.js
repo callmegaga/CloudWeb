@@ -44,7 +44,7 @@ var MapInterceptionNumberData = [
 
 //获取城市统计信息
 function getCityStatisticsCounter(){
-    $.get("getCityStatisticsCounter",{},function(data){
+    $.get("getCityStatisticsCounter?time=" + Math.random(),{},function(data){
         var series = [];
         var captureNumberSeries      = [];
         var checkNumberSeries        = [];
@@ -158,7 +158,7 @@ function getCityStatisticsCounter(){
 }
 //获取城市资产信息
 function getCityASSetInfo(){
-    $.get("getCityASSetInfo",function(data){
+    $.get("getCityASSetInfo?time=" + Math.random(),function(data){
         var series = [];
         var WindowsHostCounterSeries  = [];
         var LinuxHostCounterSeries    = [];
@@ -257,7 +257,7 @@ function getCityASSetInfo(){
 }
 //获取城市主机上线
 function getHostOnlineInfo(){
-    $.get("getHostOnlineInfo",function(data){
+    $.get("getHostOnlineInfo?time=" + Math.random(),function(data){
         var series = [];
         var offlineHostCounterSeries  = [];
         var onlineHostCounterSeries    = [];
@@ -341,7 +341,7 @@ function getHostOnlineInfo(){
 }
 //获取各时段统计信息
 function getTimeIntervalStatistics(){
-    $.get("getTimeIntervalStatistics",function(data){
+    $.get("getTimeIntervalStatistics?time=" + Math.random(),function(data){
         var series = [];
         var captureNumberSeries      = [];
         var checkNumberSeries        = [];
@@ -431,7 +431,7 @@ function getTimeIntervalStatistics(){
 }
 //获返回总统计数
 function getTotalStatisticsCounter(){
-    $.get("getTotalStatisticsCounter",function(data){
+    $.get("getTotalStatisticsCounter?time=" + Math.random(),function(data){
         var checkNumber = data.checkNumber;
         var captureNumber = data.captureNumber;
         var interceptionNumber = data.interceptionNumber;
