@@ -20,7 +20,7 @@ var MapCaptureNumberData = [
     {name:"南平市",value:[118.17846, 26.635627,0]},
 ];
 var MapCheckNumberData = [
-    {name:"福州市",value:[119.306239, 26.075302,  100000]},
+    {name:"福州市",value:[119.306239, 26.075302,  0]},
     {name:"莆田市",value:[119.007558, 25.431011, 0]},
     {name:"泉州市",value:[118.589421, 24.908853, 0]},
     {name:"厦门市",value:[118.11022, 24.490474, 0]},
@@ -45,6 +45,10 @@ var MapInterceptionNumberData = [
 //获取城市统计信息
 function getCityStatisticsCounter(){
     $.get("getCityStatisticsCounter?time=" + Math.random(),{},function(data){
+        if (!data || data == ""){
+            console.log(data);
+            return;
+        }
         var series = [];
         var captureNumberSeries      = [];
         var checkNumberSeries        = [];
@@ -159,6 +163,10 @@ function getCityStatisticsCounter(){
 //获取城市资产信息
 function getCityASSetInfo(){
     $.get("getCityASSetInfo?time=" + Math.random(),function(data){
+        if (!data || data == ""){
+            console.log(data);
+            return;
+        }
         var series = [];
         var WindowsHostCounterSeries  = [];
         var LinuxHostCounterSeries    = [];
@@ -258,6 +266,10 @@ function getCityASSetInfo(){
 //获取城市主机上线
 function getHostOnlineInfo(){
     $.get("getHostOnlineInfo?time=" + Math.random(),function(data){
+        if (!data || data == ""){
+            console.log(data);
+            return;
+        }
         var series = [];
         var offlineHostCounterSeries  = [];
         var onlineHostCounterSeries    = [];
@@ -342,6 +354,10 @@ function getHostOnlineInfo(){
 //获取各时段统计信息
 function getTimeIntervalStatistics(){
     $.get("getTimeIntervalStatistics?time=" + Math.random(),function(data){
+        if (!data || data == ""){
+            console.log(data);
+            return;
+        }
         var series = [];
         var captureNumberSeries      = [];
         var checkNumberSeries        = [];
@@ -432,6 +448,10 @@ function getTimeIntervalStatistics(){
 //获返回总统计数
 function getTotalStatisticsCounter(){
     $.get("getTotalStatisticsCounter?time=" + Math.random(),function(data){
+        if (!data || data == ""){
+            console.log(data);
+            return;
+        }
         var checkNumber = data.checkNumber;
         var captureNumber = data.captureNumber;
         var interceptionNumber = data.interceptionNumber;
