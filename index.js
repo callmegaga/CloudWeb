@@ -1,51 +1,51 @@
-var soap = require('soap');
-var express = require('express');
-var url = './skd_wats.wsdl';
-var args = {name: 'value'};
-var app = express();
-var Client;
+const SOAP = require('soap');
+const EXPRESS = require('express');
+const WSDL_URL = './skd_wats.wsdl';
+const ARGS = {name: 'value'};
+const APP = EXPRESS();
+let CLIENT;
 
-soap.createClient(url, function(err, client) {
-    Client = client
+SOAP.createClient(WSDL_URL, function(err, client) {
+    CLIENT = client
 });
 
 
-app.get('/getCityStatisticsCounter', function (req, res) {
- Client.getCityStatisticsCounter(args, function(err, result) {
+APP.get('/getCityStatisticsCounter', function (req, res) {
+ CLIENT.getCityStatisticsCounter(ARGS, function(err, result) {
         res.send(result);
     });
 });
 
-app.get('/getTotalStatisticsCounter', function (req, res) {
- Client.getTotalStatisticsCounter(args, function(err, result) {
+APP.get('/getTotalStatisticsCounter', function (req, res) {
+ CLIENT.getTotalStatisticsCounter(ARGS, function(err, result) {
         res.send(result);
     });
 });
 
-app.get('/getCityASSetInfo', function (req, res) {
- Client.getCityASSetInfo(args, function(err, result) {
+APP.get('/getCityASSetInfo', function (req, res) {
+ CLIENT.getCityASSetInfo(ARGS, function(err, result) {
         res.send(result);
     });
 });
 
-app.get('/getHostOnlineInfo', function (req, res) {
- Client.getHostOnlineInfo(args, function(err, result) {
+APP.get('/getHostOnlineInfo', function (req, res) {
+ CLIENT.getHostOnlineInfo(ARGS, function(err, result) {
         res.send(result);
     });
 });
 
-app.get('/getTimeIntervalStatistics', function (req, res) {
- Client.getTimeIntervalStatistics({type:2,count:24}, function(err, result) {
+APP.get('/getTimeIntervalStatistics', function (req, res) {
+ CLIENT.getTimeIntervalStatistics({type:2,count:24}, function(err, result) {
         res.send(result);
     });
 });
 
-app.use(express.static('public'));
+APP.use(EXPRESS.static('public'));
 
-var server = app.listen(3000, function () {
-  var host = server.address().address;
-  var port = server.address().port;
-  console.log('Example app listening at http://%s:%s', host, port);
+let SERVER = APP.listen(3000, function () {
+    let host = SERVER.address().address;
+    let port = SERVER.address().port;
+    console.log('Example APP listening at http://%s:%s', host, port);
 });
 
 

@@ -654,17 +654,17 @@ $("#content-middle-chart-title-capture-number").click(function(){
     Now_Map_Show_type = 3;
     setMapData();
 });
-getCityStatisticsCounter();
-getCityASSetInfo();
-getHostOnlineInfo();
-getTimeIntervalStatistics();
-getTotalStatisticsCounter();
-showNowTime();
-setInterval(function(){
-    getCityStatisticsCounter();
-    getCityASSetInfo();
-    getHostOnlineInfo();
-    getTimeIntervalStatistics();
-    getTotalStatisticsCounter();
-    showNowTime();
-},5000);
+// getCityStatisticsCounter();
+// getCityASSetInfo();
+// getHostOnlineInfo();
+// getTimeIntervalStatistics();
+// getTotalStatisticsCounter();
+// showNowTime();
+// setInterval(function(){
+//     getCityStatisticsCounter();
+//     getCityASSetInfo();
+//     getHostOnlineInfo();
+//     getTimeIntervalStatistics();
+//     getTotalStatisticsCounter();
+//     showNowTime();
+// },5000);

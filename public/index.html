@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
@@ -8,53 +8,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <title>森空防篡改监管云平台</title>
     <link rel="shortcut icon" href="">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 <div class="header">
-    <div class="header-title">
-        <h2>森空防篡改监管云平台</h2>
+    <div class="view">
+        <p class="text-date">
+            2018-08-02
+        </p>
+        <button class="btn-view">
+            3D视图
+        </button>
+        <button class="btn-view">
+            2D视图
+        </button>
+        <button class="btn-view">
+            热力图
+        </button>
     </div>
-    <div class="header-time">
-        <span class="header-time-day"></span><span class="header-time-time"></span>
+    <div class="title">
+        <h4>深空防篡改监管云平台</h4>
     </div>
-    <div class="header-buttons">
-        <div class="header-buttons-button">按钮</div>
-        <div class="header-buttons-button">按钮</div>
-        <div class="header-buttons-button">按钮</div>
-        <div class="header-buttons-button">按钮</div>
-        <div class="header-buttons-button">按钮</div>
-    </div>
-</div>
-<div class="content">
-    <div class="content-left">
-        <div class="content-left-top">
-            <div id="chart_1"></div>
+    <div class="condition">
+        <div class="select">
+            时间
+            <i class="fa fa-angle-down"></i>
         </div>
-        <div class="content-left-bottom">
-            <div id="chart_2"></div>
+        <div class="select">
+            地点
+            <i class="fa fa-angle-down"></i>
         </div>
-    </div>
-    <div class="content-middle">
-        <div class="content-middle-chart-title hide">
-            <div id="content-middle-chart-title-check-number"><img src="img/white_circle.png"><span id="all-check-number"></span></div>
-            <div id="content-middle-chart-title-interception-number"><img src="img/yellow_circle.png"><span id="all-interception-number"></span></div>
-            <div id="content-middle-chart-title-capture-number"><img src="img/red_circle.png"><span id="all-capture-number"></span></div>
+        <div class="select">
+            波段
+            <i class="fa fa-angle-down"></i>
         </div>
-        <div id="chart_3"></div>
-    </div>
-    <div class="content-right">
-        <div class="content-right-top">
-            <div id="chart_4"></div>
-            <span class="all_city_ass"></span>
+        <div class="select">
+            光谱
+            <i class="fa fa-angle-down"></i>
         </div>
-        <div class="content-right-bottom">
-            <div id="chart_5"></div>
+        <div class="select">
+            展示
+            <i class="fa fa-angle-down"></i>
+        </div>
+        <div class="select">
+            更多
+            <i class="fa fa-angle-down"></i>
         </div>
     </div>
 </div>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/echarts.min.js"></script>
-<script src="js/main.js"></script>
+<script src="js/echarts-gl.min.js"></script>
+<!--<script src="js/main.js"></script>-->
 </body>
 </html>

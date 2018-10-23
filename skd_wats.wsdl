@@ -26,19 +26,91 @@
     elementFormDefault="unqualified"
     attributeFormDefault="unqualified">
     <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+    <simpleType name="Granularity"><!-- wats__Granularity -->
+      <restriction base="xsd:string">
+        <!-- = 0 -->
+        <enumeration value="G-MIN"/><!-- G_MIN -->
+        <!-- = 1 -->
+        <enumeration value="G-HOUR"/><!-- G_HOUR -->
+        <!-- = 2 -->
+        <enumeration value="G-DAY"/><!-- G_DAY -->
+      </restriction>
+    </simpleType>
+    <simpleType name="Band"><!-- wats__Band -->
+      <restriction base="xsd:string">
+        <!-- = 0 -->
+        <enumeration value="B-WATS"/><!-- B_WATS -->
+        <!-- = 1 -->
+        <enumeration value="B-WAFS"/><!-- B_WAFS -->
+        <!-- = 2 -->
+        <enumeration value="B-ATVS"/><!-- B_ATVS -->
+      </restriction>
+    </simpleType>
+    <complexType name="DefenseInfo"><!-- wats__DefenseInfo -->
+          <sequence>
+            <element name="strCstmID" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__DefenseInfo::strCstmID -->
+            <element name="strCstmName" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__DefenseInfo::strCstmName -->
+            <element name="lat" type="xsd:float" minOccurs="1" maxOccurs="1"/><!-- wats__DefenseInfo::lat -->
+            <element name="lng" type="xsd:float" minOccurs="1" maxOccurs="1"/><!-- wats__DefenseInfo::lng -->
+            <element name="SQLInjectionCount" type="xsd:unsignedLong" minOccurs="0" maxOccurs="unbounded"/><!-- wats__DefenseInfo::SQLInjectionCount -->
+            <element name="XSSCount" type="xsd:unsignedLong" minOccurs="0" maxOccurs="unbounded"/><!-- wats__DefenseInfo::XSSCount -->
+            <element name="AppHoleCount" type="xsd:unsignedLong" minOccurs="0" maxOccurs="unbounded"/><!-- wats__DefenseInfo::AppHoleCount -->
+            <element name="CheckCount" type="xsd:unsignedLong" minOccurs="0" maxOccurs="unbounded"/><!-- wats__DefenseInfo::CheckCount -->
+            <element name="InterceptCount" type="xsd:unsignedLong" minOccurs="0" maxOccurs="unbounded"/><!-- wats__DefenseInfo::InterceptCount -->
+            <element name="CaptureCount" type="xsd:unsignedLong" minOccurs="0" maxOccurs="unbounded"/><!-- wats__DefenseInfo::CaptureCount -->
+            <element name="WebShellCount" type="xsd:unsignedLong" minOccurs="0" maxOccurs="unbounded"/><!-- wats__DefenseInfo::WebShellCount -->
+            <element name="TrojanCount" type="xsd:unsignedLong" minOccurs="0" maxOccurs="unbounded"/><!-- wats__DefenseInfo::TrojanCount -->
+            <element name="OtherCount" type="xsd:unsignedLong" minOccurs="0" maxOccurs="unbounded"/><!-- wats__DefenseInfo::OtherCount -->
+          </sequence>
+    </complexType>
     <complexType name="CityAssetInfo"><!-- wats__CityAssetInfo -->
           <sequence>
-            <element name="cityID" type="xsd:unsignedInt" minOccurs="1" maxOccurs="1"/><!-- wats__CityAssetInfo::cityID -->
-            <element name="WindowsHostCounter" type="xsd:unsignedInt" minOccurs="1" maxOccurs="1"/><!-- wats__CityAssetInfo::WindowsHostCounter -->
-            <element name="LinuxHostCounter" type="xsd:unsignedInt" minOccurs="1" maxOccurs="1"/><!-- wats__CityAssetInfo::LinuxHostCounter -->
-            <element name="otherHostCOunter" type="xsd:unsignedInt" minOccurs="1" maxOccurs="1"/><!-- wats__CityAssetInfo::otherHostCOunter -->
+            <element name="strCstmName" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__CityAssetInfo::strCstmName -->
+            <element name="WindowsHostCounter" type="xsd:unsignedInt" minOccurs="0" maxOccurs="unbounded"/><!-- wats__CityAssetInfo::WindowsHostCounter -->
+            <element name="LinuxHostCounter" type="xsd:unsignedInt" minOccurs="0" maxOccurs="unbounded"/><!-- wats__CityAssetInfo::LinuxHostCounter -->
+            <element name="otherHostCOunter" type="xsd:unsignedInt" minOccurs="0" maxOccurs="unbounded"/><!-- wats__CityAssetInfo::otherHostCOunter -->
           </sequence>
     </complexType>
     <complexType name="HostOnlineInfo"><!-- wats__HostOnlineInfo -->
           <sequence>
-            <element name="cityID" type="xsd:unsignedInt" minOccurs="1" maxOccurs="1"/><!-- wats__HostOnlineInfo::cityID -->
-            <element name="onlineHostCounter" type="xsd:unsignedInt" minOccurs="1" maxOccurs="1"/><!-- wats__HostOnlineInfo::onlineHostCounter -->
-            <element name="offlineHostCounter" type="xsd:unsignedInt" minOccurs="1" maxOccurs="1"/><!-- wats__HostOnlineInfo::offlineHostCounter -->
+            <element name="strCstmName" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__HostOnlineInfo::strCstmName -->
+            <element name="onlineHostCounter" type="xsd:unsignedInt" minOccurs="0" maxOccurs="unbounded"/><!-- wats__HostOnlineInfo::onlineHostCounter -->
+            <element name="offlineHostCounter" type="xsd:unsignedInt" minOccurs="0" maxOccurs="unbounded"/><!-- wats__HostOnlineInfo::offlineHostCounter -->
+          </sequence>
+    </complexType>
+    <complexType name="CstmInfo"><!-- wats__CstmInfo -->
+          <sequence>
+            <element name="strType" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::strType -->
+            <element name="strCstmName" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::strCstmName -->
+            <element name="strAddr" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::strAddr -->
+            <element name="strCharge" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::strCharge -->
+            <element name="strPhoneNumber" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::strPhoneNumber -->
+            <element name="strCstmID" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::strCstmID -->
+            <element name="strLastAlertTime" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::strLastAlertTime -->
+            <element name="HostCount" type="xsd:unsignedInt" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::HostCount -->
+            <element name="OnlineHostCount" type="xsd:unsignedInt" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::OnlineHostCount -->
+            <element name="SQLInjectionCount" type="xsd:unsignedLong" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::SQLInjectionCount -->
+            <element name="XSSCount" type="xsd:unsignedLong" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::XSSCount -->
+            <element name="AppHoleCount" type="xsd:unsignedLong" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::AppHoleCount -->
+            <element name="CheckCount" type="xsd:unsignedLong" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::CheckCount -->
+            <element name="InterceptCount" type="xsd:unsignedLong" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::InterceptCount -->
+            <element name="CaptureCount" type="xsd:unsignedLong" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::CaptureCount -->
+            <element name="WebShellCount" type="xsd:unsignedLong" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::WebShellCount -->
+            <element name="TrojanCount" type="xsd:unsignedLong" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::TrojanCount -->
+            <element name="OtherCount" type="xsd:unsignedLong" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::OtherCount -->
+            <element name="phoneCount" type="xsd:unsignedLong" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::phoneCount -->
+            <element name="mailCount" type="xsd:unsignedLong" minOccurs="1" maxOccurs="1"/><!-- wats__CstmInfo::mailCount -->
+          </sequence>
+    </complexType>
+    <complexType name="AlertInfo"><!-- wats__AlertInfo -->
+          <sequence>
+            <element name="strSendTime" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__AlertInfo::strSendTime -->
+            <element name="strType" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__AlertInfo::strType -->
+            <element name="strDestination" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__AlertInfo::strDestination -->
+            <element name="strAddr" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__AlertInfo::strAddr -->
+            <element name="strCharge" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__AlertInfo::strCharge -->
+            <element name="strCstmName" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__AlertInfo::strCstmName -->
+            <element name="strInfoBuf" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__AlertInfo::strInfoBuf -->
           </sequence>
     </complexType>
     <!-- operation request element -->
@@ -72,34 +144,23 @@
       </complexType>
     </element>
     <!-- operation request element -->
-    <element name="getTotalStatisticsCounter">
+    <element name="DefenseData">
       <complexType>
           <sequence>
-          </sequence>
-      </complexType>
-    </element>
-    <!-- operation response element and type -->
-    <element name="ProStatInfo" type="wats:ProStatInfo"/>
-    <complexType name="ProStatInfo">
-          <sequence>
-            <element name="cityID" type="xsd:unsignedInt" minOccurs="1" maxOccurs="1"/><!-- wats__ProStatInfo::cityID -->
-            <element name="checkNumber" type="xsd:unsignedLong" minOccurs="1" maxOccurs="1"/><!-- wats__ProStatInfo::checkNumber -->
-            <element name="interceptionNumber" type="xsd:unsignedLong" minOccurs="1" maxOccurs="1"/><!-- wats__ProStatInfo::interceptionNumber -->
-            <element name="captureNumber" type="xsd:unsignedLong" minOccurs="1" maxOccurs="1"/><!-- wats__ProStatInfo::captureNumber -->
-          </sequence>
-    </complexType>
-    <!-- operation request element -->
-    <element name="getCityStatisticsCounter">
-      <complexType>
-          <sequence>
+            <element name="GEnum" type="wats:Granularity" minOccurs="1" maxOccurs="1"/><!-- wats__DefenseData::GEnum -->
+            <element name="beginTime" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__DefenseData::beginTime -->
+            <element name="endTime" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__DefenseData::endTime -->
+            <element name="addrFlag" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__DefenseData::addrFlag -->
+            <element name="strAddr" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__DefenseData::strAddr -->
+            <element name="BEnum" type="wats:Band" minOccurs="1" maxOccurs="1"/><!-- wats__DefenseData::BEnum -->
           </sequence>
       </complexType>
     </element>
     <!-- operation response element -->
-    <element name="getCityStatisticsCounterResponse">
+    <element name="DefenseDataResponse">
       <complexType>
           <sequence>
-            <element name="response" type="wats:ProStatInfo" minOccurs="1" maxOccurs="unbounded"/><!-- wats__getCityStatisticsCounter::response -->
+            <element name="response" type="wats:DefenseInfo" minOccurs="1" maxOccurs="unbounded"/><!-- wats__DefenseData::response -->
           </sequence>
       </complexType>
     </element>
@@ -107,6 +168,12 @@
     <element name="getCityASSetInfo">
       <complexType>
           <sequence>
+            <element name="GEnum" type="wats:Granularity" minOccurs="1" maxOccurs="1"/><!-- wats__getCityASSetInfo::GEnum -->
+            <element name="beginTime" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__getCityASSetInfo::beginTime -->
+            <element name="endTime" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__getCityASSetInfo::endTime -->
+            <element name="addrFlag" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__getCityASSetInfo::addrFlag -->
+            <element name="strAddr" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__getCityASSetInfo::strAddr -->
+            <element name="BEnum" type="wats:Band" minOccurs="1" maxOccurs="1"/><!-- wats__getCityASSetInfo::BEnum -->
           </sequence>
       </complexType>
     </element>
@@ -122,6 +189,12 @@
     <element name="getHostOnlineInfo">
       <complexType>
           <sequence>
+            <element name="GEnum" type="wats:Granularity" minOccurs="1" maxOccurs="1"/><!-- wats__getHostOnlineInfo::GEnum -->
+            <element name="beginTime" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__getHostOnlineInfo::beginTime -->
+            <element name="endTime" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__getHostOnlineInfo::endTime -->
+            <element name="addrFlag" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__getHostOnlineInfo::addrFlag -->
+            <element name="strAddr" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__getHostOnlineInfo::strAddr -->
+            <element name="BEnum" type="wats:Band" minOccurs="1" maxOccurs="1"/><!-- wats__getHostOnlineInfo::BEnum -->
           </sequence>
       </complexType>
     </element>
@@ -134,19 +207,60 @@
       </complexType>
     </element>
     <!-- operation request element -->
-    <element name="getTimeIntervalStatistics">
+    <element name="getLoginURLbyCstmID">
       <complexType>
           <sequence>
-            <element name="type" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__getTimeIntervalStatistics::type -->
-            <element name="count" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__getTimeIntervalStatistics::count -->
+            <element name="strCstmID" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__getLoginURLbyCstmID::strCstmID -->
           </sequence>
       </complexType>
     </element>
     <!-- operation response element -->
-    <element name="getTimeIntervalStatisticsResponse">
+    <element name="getLoginURLbyCstmIDResponse">
       <complexType>
           <sequence>
-            <element name="response" type="wats:ProStatInfo" minOccurs="1" maxOccurs="unbounded"/><!-- wats__getTimeIntervalStatistics::response -->
+            <element name="response" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__getLoginURLbyCstmID::response -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation request element -->
+    <element name="getCstmInfo">
+      <complexType>
+          <sequence>
+            <element name="GEnum" type="wats:Granularity" minOccurs="1" maxOccurs="1"/><!-- wats__getCstmInfo::GEnum -->
+            <element name="beginTime" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__getCstmInfo::beginTime -->
+            <element name="endTime" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__getCstmInfo::endTime -->
+            <element name="addrFlag" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__getCstmInfo::addrFlag -->
+            <element name="strAddr" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__getCstmInfo::strAddr -->
+            <element name="BEnum" type="wats:Band" minOccurs="1" maxOccurs="1"/><!-- wats__getCstmInfo::BEnum -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation response element -->
+    <element name="getCstmInfoResponse">
+      <complexType>
+          <sequence>
+            <element name="response" type="wats:CstmInfo" minOccurs="1" maxOccurs="unbounded"/><!-- wats__getCstmInfo::response -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation request element -->
+    <element name="getAlertInfo">
+      <complexType>
+          <sequence>
+            <element name="GEnum" type="wats:Granularity" minOccurs="1" maxOccurs="1"/><!-- wats__getAlertInfo::GEnum -->
+            <element name="beginTime" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__getAlertInfo::beginTime -->
+            <element name="endTime" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__getAlertInfo::endTime -->
+            <element name="addrFlag" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- wats__getAlertInfo::addrFlag -->
+            <element name="strAddr" type="xsd:string" minOccurs="1" maxOccurs="1"/><!-- wats__getAlertInfo::strAddr -->
+            <element name="BEnum" type="wats:Band" minOccurs="1" maxOccurs="1"/><!-- wats__getAlertInfo::BEnum -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation response element -->
+    <element name="getAlertInfoResponse">
+      <complexType>
+          <sequence>
+            <element name="response" type="wats:AlertInfo" minOccurs="1" maxOccurs="unbounded"/><!-- wats__getAlertInfo::response -->
           </sequence>
       </complexType>
     </element>
@@ -170,20 +284,12 @@
   <part name="Body" element="wats:getDeviceCountResponse"/>
 </message>
 
-<message name="getTotalStatisticsCounter">
-  <part name="Body" element="wats:getTotalStatisticsCounter"/><!-- wats__getTotalStatisticsCounter::wats__getTotalStatisticsCounter -->
+<message name="DefenseDataRequest">
+  <part name="Body" element="wats:DefenseData"/><!-- wats__DefenseData::wats__DefenseData -->
 </message>
 
-<message name="ProStatInfo">
-  <part name="Body" element="wats:ProStatInfo"/><!-- wats__getTotalStatisticsCounter::response -->
-</message>
-
-<message name="getCityStatisticsCounterRequest">
-  <part name="Body" element="wats:getCityStatisticsCounter"/><!-- wats__getCityStatisticsCounter::wats__getCityStatisticsCounter -->
-</message>
-
-<message name="getCityStatisticsCounterResponse">
-  <part name="Body" element="wats:getCityStatisticsCounterResponse"/>
+<message name="DefenseDataResponse">
+  <part name="Body" element="wats:DefenseDataResponse"/>
 </message>
 
 <message name="getCityASSetInfoRequest">
@@ -202,12 +308,28 @@
   <part name="Body" element="wats:getHostOnlineInfoResponse"/>
 </message>
 
-<message name="getTimeIntervalStatisticsRequest">
-  <part name="Body" element="wats:getTimeIntervalStatistics"/><!-- wats__getTimeIntervalStatistics::wats__getTimeIntervalStatistics -->
+<message name="getLoginURLbyCstmIDRequest">
+  <part name="Body" element="wats:getLoginURLbyCstmID"/><!-- wats__getLoginURLbyCstmID::wats__getLoginURLbyCstmID -->
 </message>
 
-<message name="getTimeIntervalStatisticsResponse">
-  <part name="Body" element="wats:getTimeIntervalStatisticsResponse"/>
+<message name="getLoginURLbyCstmIDResponse">
+  <part name="Body" element="wats:getLoginURLbyCstmIDResponse"/>
+</message>
+
+<message name="getCstmInfoRequest">
+  <part name="Body" element="wats:getCstmInfo"/><!-- wats__getCstmInfo::wats__getCstmInfo -->
+</message>
+
+<message name="getCstmInfoResponse">
+  <part name="Body" element="wats:getCstmInfoResponse"/>
+</message>
+
+<message name="getAlertInfoRequest">
+  <part name="Body" element="wats:getAlertInfo"/><!-- wats__getAlertInfo::wats__getAlertInfo -->
+</message>
+
+<message name="getAlertInfoResponse">
+  <part name="Body" element="wats:getAlertInfoResponse"/>
 </message>
 
 <portType name="skd_watsPortType">
@@ -221,15 +343,10 @@
     <input message="tns:getDeviceCountRequest"/>
     <output message="tns:getDeviceCountResponse"/>
   </operation>
-  <operation name="getTotalStatisticsCounter">
-    <documentation>Service definition of function wats__getTotalStatisticsCounter</documentation>
-    <input message="tns:getTotalStatisticsCounter"/>
-    <output message="tns:ProStatInfo"/>
-  </operation>
-  <operation name="getCityStatisticsCounter">
-    <documentation>Service definition of function wats__getCityStatisticsCounter</documentation>
-    <input message="tns:getCityStatisticsCounterRequest"/>
-    <output message="tns:getCityStatisticsCounterResponse"/>
+  <operation name="DefenseData">
+    <documentation>Service definition of function wats__DefenseData</documentation>
+    <input message="tns:DefenseDataRequest"/>
+    <output message="tns:DefenseDataResponse"/>
   </operation>
   <operation name="getCityASSetInfo">
     <documentation>Service definition of function wats__getCityASSetInfo</documentation>
@@ -241,10 +358,20 @@
     <input message="tns:getHostOnlineInfoRequest"/>
     <output message="tns:getHostOnlineInfoResponse"/>
   </operation>
-  <operation name="getTimeIntervalStatistics">
-    <documentation>Service definition of function wats__getTimeIntervalStatistics</documentation>
-    <input message="tns:getTimeIntervalStatisticsRequest"/>
-    <output message="tns:getTimeIntervalStatisticsResponse"/>
+  <operation name="getLoginURLbyCstmID">
+    <documentation>Service definition of function wats__getLoginURLbyCstmID</documentation>
+    <input message="tns:getLoginURLbyCstmIDRequest"/>
+    <output message="tns:getLoginURLbyCstmIDResponse"/>
+  </operation>
+  <operation name="getCstmInfo">
+    <documentation>Service definition of function wats__getCstmInfo</documentation>
+    <input message="tns:getCstmInfoRequest"/>
+    <output message="tns:getCstmInfoResponse"/>
+  </operation>
+  <operation name="getAlertInfo">
+    <documentation>Service definition of function wats__getAlertInfo</documentation>
+    <input message="tns:getAlertInfoRequest"/>
+    <output message="tns:getAlertInfoResponse"/>
   </operation>
 </portType>
 
@@ -268,16 +395,7 @@
           <SOAP:body parts="Body" use="literal"/>
     </output>
   </operation>
-  <operation name="getTotalStatisticsCounter">
-    <SOAP:operation soapAction=""/>
-    <input>
-          <SOAP:body parts="Body" use="literal"/>
-    </input>
-    <output>
-          <SOAP:body parts="Body" use="literal"/>
-    </output>
-  </operation>
-  <operation name="getCityStatisticsCounter">
+  <operation name="DefenseData">
     <SOAP:operation soapAction=""/>
     <input>
           <SOAP:body parts="Body" use="literal"/>
@@ -304,7 +422,25 @@
           <SOAP:body parts="Body" use="literal"/>
     </output>
   </operation>
-  <operation name="getTimeIntervalStatistics">
+  <operation name="getLoginURLbyCstmID">
+    <SOAP:operation soapAction=""/>
+    <input>
+          <SOAP:body parts="Body" use="literal"/>
+    </input>
+    <output>
+          <SOAP:body parts="Body" use="literal"/>
+    </output>
+  </operation>
+  <operation name="getCstmInfo">
+    <SOAP:operation soapAction=""/>
+    <input>
+          <SOAP:body parts="Body" use="literal"/>
+    </input>
+    <output>
+          <SOAP:body parts="Body" use="literal"/>
+    </output>
+  </operation>
+  <operation name="getAlertInfo">
     <SOAP:operation soapAction=""/>
     <input>
           <SOAP:body parts="Body" use="literal"/>
@@ -318,7 +454,7 @@
 <service name="skd_wats">
   <documentation>gSOAP 2.8.53 generated service definition</documentation>
   <port name="skd_wats" binding="tns:skd_wats">
-    <SOAP:address location="http://ws.sa.sky-deep.com/webservice_sa/soap_isapi.dll?soap_wats"/>
+    <SOAP:address location="http://bd2.api.sky-deep.com/0e305732090d/soap_isapi.dll?soap_wats"/>
   </port>
 </service>
 

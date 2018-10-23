@@ -6,161 +6,77 @@ body{
     width: 100%;
     height: 100%;
     margin: 0;
-    background-image: url("../img/bg.png");
-    background-size:100% 100%;
+    background:radial-gradient(circle,rgba(7,26,43,1) 0%,rgba(5,12,20,1) 100%);
 }
 .header{
-    color: white;
-    text-align: center;
-    height: 110px;
+    width: 100%;
+    height: 70px;
+    background:rgba(255,255,255,0.04);
 }
-.header-title{
+.header .view{
+    width: 30%;
+    height: 70px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+.header .title{
+    width: 39%;
+    height: 70px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+}
+.header .condition{
+    width: 30%;
+    height: 70px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+.header .view > p{
+    width:102px;
+    font-size:16px;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    margin: 21px auto;
+    line-height:28px;
     display: inline-block;
 }
-.header-title h2{
-    font-size: 1.7em;
-    margin-top: 10px;
+.header .view > button{
+    width:70px;
+    height:24px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(67,90,104,1);
+    border-radius:12px;
+    margin: 21px 10px;
+    font-size:14px;
+    font-family:SourceHanSansCN-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    cursor: pointer;
 }
-.header-time{
-    position: absolute;
-    top: 10px;
-    left: 20px;
+.header .view > button:hover{
+    background:rgba(8,116,117,0.5);
+    border:1px solid rgba(91,211,237,1);
+    color:rgba(91,211,237,1);
 }
-.header-time-time{
-    margin-left: 10px;
+.header .title > h4{
+    font-size:28px;
+    font-family:MicrosoftYaHei;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    margin: 21px auto;
+    line-height: 28px;
 }
-.header-buttons{
-    margin-top: 20px;
-}
-.header-buttons-button{
-    width: 7%;
+.header .condition .select{
     cursor: pointer;
     display: inline-block;
-    border-bottom:1px solid transparent;
-    border-image: url("../img/btn_bottom_border.png") 10 10 ;
-}
-
-.content{
-    width: 100%;
-    height: calc(100% - 110px);
-    margin-top: -12px;
-}
-
-.content-left{
-    width: 25%;
-    height: 100%;
-    margin-left: 40px;
-    display: inline-block;
-    vertical-align: top;
-}
-.content-left-top{
-    width: calc(100% - 40px);
-    height: 55%;
-    background-image: url("../img/frame_1.png");
-    background-size:100% 100%;
-    padding: 20px 20px 0px 20px;
-}
-.content-left-bottom{
-    margin-top: 20px;
-    width: calc(100% - 40px);
-    height:35%;
-    background-image: url("../img/frame_3.png");
-    background-size:100% 100%;
-    padding: 20px 20px 0px 20px;
-}
-.content-middle{
-    width: calc(50% - 130px);
-    height: calc(100% - 20px);
-    padding: 20px 20px 0px 20px;
-    display: inline-block;
-    vertical-align: top;
-}
-.content-middle-chart-title{
-    width: calc(50% - 100px);
-    top: 130px;
-    position: absolute;
-    text-align: center;
-    z-index: 2;
-}
-.content-middle-chart-title>div{
-    width: 32.5%;
-    cursor: pointer;
-    display: inline-block;
-    vertical-align:middle;
-}
-.content-middle-chart-title>div>img{
-    vertical-align: middle;
-    width: 10%;
-    margin-right: 8px;
-}
-.content-middle-chart-title>div>span{
-    color: white;
-    font-size: 13px;
-}
-.content-right{
-    width: 25%;
-    height: 100%;
-    margin-right: 40px;
-    display: inline-block;
-    vertical-align: top;
-}
-.content-right-top{
-    width: calc(100% - 40px);
-    height: 45%;
-    background-image: url("../img/frame_1.png");
-    background-size:100% 100%;
-    padding: 20px 20px 0px 20px;
-}
-.content-right-bottom{
-    width: calc(100% - 40px);
-    height:45%;
-    margin-top: 20px;
-    background-image: url("../img/frame_1.png");
-    background-size:100% 100%;
-    padding: 20px 20px 0px 20px;
-}
-
-@media (max-width: 1366px) {
-    .content-right{
-        width: 27%;
-    }
-    .content-middle-chart-title{
-        width: calc(48% - 100px);
-    }
-    .content-middle{
-        width: calc(48% - 130px);
-    }
-}
-
-#chart_1{
-    width: 100%;
-    height: 100%;
-}
-
-#chart_2{
-    width: 100%;
-    height: 100%;
-}
-
-#chart_3{
-    width: 100%;
-    height: 100%;
-}
-
-#chart_4{
-    width: 100%;
-    height: 100%;
-}
-.all_city_ass{
-    position: absolute;
-    top: 120px;
-    right: 60px;
-    color: white;
-}
-#chart_5{
-    width: 100%;
-    height: 100%;
-}
-.hide{
-    display: none;
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    margin: 21px 8px;
+    line-height: 28px;
 }
