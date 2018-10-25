@@ -8,10 +8,18 @@ body{
     margin: 0;
     background:radial-gradient(circle,rgba(7,26,43,1) 0%,rgba(5,12,20,1) 100%);
 }
+.hide{
+    display: none;
+}
 .header{
     width: 100%;
     height: 70px;
     background:rgba(255,255,255,0.04);
+    -moz-user-select:none;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    -khtml-user-select:none;
+    user-select:none;
 }
 .header .view{
     width: 30%;
@@ -63,6 +71,8 @@ body{
     color:rgba(91,211,237,1);
 }
 .header .title > h4{
+    width: 300px;
+    cursor: pointer;
     font-size:28px;
     font-family:MicrosoftYaHei;
     font-weight:400;
@@ -79,4 +89,48 @@ body{
     color:rgba(255,255,255,1);
     margin: 21px 8px;
     line-height: 28px;
+}
+.header .condition .select:hover{
+    color:rgba(91,211,237,1);
+}
+.header .condition .select .options{
+    text-align: left;
+    width: 230px;
+    margin-top: 5px;
+    position: absolute;
+    color:rgba(255,255,255,1);
+    font-size:14px;
+}
+.header .condition .select .options > ul{
+    list-style-type:none
+}
+.header .condition .select .options > ul > li{
+    padding-left: 3px;
+}
+.header .condition .select .options > ul > li:hover{
+    color:rgba(91,211,237,1);
+    background-color: #152129;
+}
+.header .condition .select .options > ul > li.active{
+    color:rgba(91,211,237,1);
+    background-color: #152129;
+}
+
+.header .condition .select .options-time{
+    margin-left: -40px;
+}
+.header .condition .select .options-city{
+    margin-left: -50px;
+}
+.header .condition .select .options-type{
+    margin-left: -45px;
+}
+.header .condition .select .options-light{
+    margin-left: -40px;
+}
+.header .condition .select .options-show{
+    margin-left: -90px;
+}
+.header .condition .select .options-more{
+    margin-left: -160px;
 }
