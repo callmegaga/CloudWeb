@@ -134,3 +134,24 @@ body{
 .header .condition .select .options-more{
     margin-left: -160px;
 }
+.custom-time-select{
+    background-color: #151c22;
+    position: absolute;
+    width: 790px;
+    height: 190px;
+    top: 213px;
+    text-align: center;
+    left: calc(50% - 395px);
+}
+.custom-time-select .title{
+    padding: 14px 0px;
+    background-color: #172128;
+}
+.custom-time-select .content{
+    padding-top: 40px;
+}
+.custom-time-select .title > h5{
+    color: #5BD3ED;
+    font-size:16px;
+    margin: unset;
+}

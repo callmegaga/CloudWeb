@@ -10,8 +10,22 @@
     <link rel="shortcut icon" href="">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="lib/datepicker/css/datepicker.css">
 </head>
 <body>
+<div class="custom-time-select hide">
+    <div class="title">
+        <h5>时间自定义</h5>
+    </div>
+    <div class="content">
+        <div class="c-datepicker-date-editor J-datepickerTime-range mt10">
+            <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
+            <input placeholder="开始日期" name="" class="c-datepicker-data-input" value="">
+            <span class="c-datepicker-range-separator">-</span>
+            <input placeholder="结束日期" name="" class="c-datepicker-data-input" value="">
+        </div>
+    </div>
+</div>
 <div class="header">
     <div class="view">
         <p class="text-date">
@@ -37,11 +51,11 @@
             <div class="options options-time hide">
                 <ul>
                     <li class="active">最近24小时（1分钟刷新1次）</li>
-                    <li>最近30天（1个月）</li>
-                    <li>最近90天（3个月）</li>
-                    <li>最近180天（半年）</li>
-                    <li>最近365天（1年）</li>
-                    <li>自定义</li>
+                    <li data-value="last-30">最近30天（1个月）</li>
+                    <li data-value="last-90">最近90天（3个月）</li>
+                    <li data-value="last-180">最近180天（半年）</li>
+                    <li data-value="last-365">最近365天（1年）</li>
+                    <li data-value="custom">自定义</li>
                 </ul>
             </div>
         </div>
@@ -51,8 +65,8 @@
             <div class="options options-city hide">
                 <ul>
                     <li>当前城市：成都</li>
-                    <li>按省份选择</li>
-                    <li>按城市选择</li>
+                    <li data-value="last-30">按省份选择</li>
+                    <li data-value="last-30">按城市选择</li>
                 </ul>
             </div>
         </div>
@@ -61,9 +75,9 @@
             <i class="fa fa-angle-down"></i>
             <div class="options options-type hide">
                 <ul>
-                    <li>网页防篡改</li>
-                    <li>web应用防火墙</li>
-                    <li>反病毒</li>
+                    <li data-value="last-30">网页防篡改</li>
+                    <li data-value="last-30">web应用防火墙</li>
+                    <li data-value="last-30">反病毒</li>
                 </ul>
             </div>
         </div>
@@ -108,6 +122,8 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/echarts.min.js"></script>
 <script src="js/echarts-gl.min.js"></script>
+<script src="lib/datepicker/js/plugins/moment.min.js"></script>
+<script src="lib/datepicker/js/datepicker.all.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
