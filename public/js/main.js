@@ -64,4 +64,25 @@ $(function () {
             console.info(this.$input.eq(0).val(), this.$input.eq(1).val())
         }
     });
+    initCitySelect();
 });
+
+function initCitySelect() {
+    var html = "";
+    for (var i in ChineseDistricts[86]){
+        var word = i;
+        for (var n in ChineseDistricts[86][i]){
+            var province = ChineseDistricts[86][i][n];
+            var code = province.code;
+            html += "<p class='word'>"+ i +"</p><div class='city-content'>";
+            html += "<p class='province'>"+ province.address +":</p>";
+            for (var m in ChineseDistricts[code]){
+                var city = ChineseDistricts[code][m];
+                html += "<p class='city'>"+ city +"</p>";
+            }
+            html += "</div><br>"
+        }
+
+    }
+    $("#all-city").html(html);
+}

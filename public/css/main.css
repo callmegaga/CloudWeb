@@ -155,3 +155,64 @@ body{
     font-size:16px;
     margin: unset;
 }
+
+.custom-city-select{
+    padding: 29px;
+    position: absolute;
+    width: 372px;
+    height: 353px;
+    background-color: #11171f;
+}
+.custom-city-select hr{
+    color: gray;
+}
+.custom-city-select .some-city{
+    color: white;
+    font-size: 14px;
+    height: 111px;
+}
+.custom-city-select .some-city > p{
+    cursor: pointer;
+    display: inline-block;
+    margin: 5px 10px;
+}
+
+.custom-city-select .some-city .active{
+    color: #5BD3ED;
+}
+.custom-city-select .all-city{
+    height: 240px;
+    overflow: auto;
+}
+.custom-city-select .city-content{
+    display: inline-block;
+    width: 300px;
+    margin-top: 15px;
+}
+.custom-city-select .all-city  p{
+    cursor: pointer;
+    display: inline-block;
+    margin: 5px;
+}
+.custom-city-select .all-city .word{
+    width: 21px;
+    font-size: 30px;
+    color: #889496;
+    vertical-align: top;
+}
+.custom-city-select .all-city .province{
+    font-size: 14px;
+    color: #f4f4f4;
+}
+.custom-city-select .all-city .city{
+    font-size: 14px;
+    color: #bbbdbe;
+}
+::-webkit-scrollbar{
+    width: 3px;
+    height: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #666666;
+    border-radius: 3px;
+}

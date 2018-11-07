@@ -26,6 +26,17 @@
         </div>
     </div>
 </div>
+<div class="custom-city-select">
+    <div class="some-city">
+        <p class="active">全国</p><p>北京</p><p>上海</p><p>广州</p><p>深圳</p><p>天津</p><p>南京</p><p>杭州</p><p>武汉</p><p>重庆</p>
+        <br>
+        <p>A</p><p>F</p><p>G</p><p>H</p><p>J</p><p>L</p><p>N</p><p>Q</p><p>S</p><p>T</p><p>X</p><p>Y</p><p>Z</p>
+    </div>
+    <hr>
+    <div class="all-city" id="all-city">
+
+    </div>
+</div>
 <div class="header">
     <div class="view">
         <p class="text-date">
@@ -65,8 +76,7 @@
             <div class="options options-city hide">
                 <ul>
                     <li>当前城市：成都</li>
-                    <li data-value="last-30">按省份选择</li>
-                    <li data-value="last-30">按城市选择</li>
+                    <li data-value="select-city">重新选择</li>
                 </ul>
             </div>
         </div>
@@ -124,6 +134,7 @@
 <script src="js/echarts-gl.min.js"></script>
 <script src="lib/datepicker/js/plugins/moment.min.js"></script>
 <script src="lib/datepicker/js/datepicker.all.min.js"></script>
+<script src="js/city.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
